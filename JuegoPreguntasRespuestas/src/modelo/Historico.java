@@ -9,5 +9,66 @@ package modelo;
  * @author Camila Morales
  */
 public class Historico {
+    /**
+     * Atributos
+     */
+    private int idHistorico;
+    private Jugador jugador;
+
+    /**
+     * Constructor
+     */
+    public Historico() {
+    }
+
+    /**
+     * Constructor
+     * @param jugador 
+     */
+    public Historico(Jugador jugador) {
+        this.jugador = jugador;
+    }
+
+    /**
+     * Constructor
+     * @param idHistorico
+     * @param jugador 
+     */
+    public Historico(int idHistorico, Jugador jugador) {
+        this.idHistorico = idHistorico;
+        this.jugador = jugador;
+    }
+
+    /**
+     * 
+     * @return idHistorico
+     */
+    public int getIdHistorico() {
+        return idHistorico;
+    }
+    /**
+     * 
+     * @param idHistorico 
+     */
+    public void setIdHistorico(int idHistorico) {
+        this.idHistorico = idHistorico;
+    }
+    /**
+     * 
+     * @return jugador
+     */
+    public Jugador getJugador() {
+        return jugador;
+    }
+
+    /**
+     * 
+     * @param jugador 
+     */
+    public void setJugador(Jugador jugador) {
+        this.jugador = jugador;
+    }
     
+    
+            
 } 
