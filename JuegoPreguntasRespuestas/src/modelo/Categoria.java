@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -33,6 +34,7 @@ public class Categoria {
     public Categoria(String descripción, String nivelDificultad) {
         this.descripción = descripción;
         this.nivelDificultad = nivelDificultad;
+        this.preguntas = new ArrayList<>();
     }
     
     /**
@@ -45,6 +47,7 @@ public class Categoria {
         this.idCategoria = idCategoria;
         this.descripción = descripción;
         this.nivelDificultad = nivelDificultad;
+        this.preguntas = new ArrayList<>();
     }
 
     /**
