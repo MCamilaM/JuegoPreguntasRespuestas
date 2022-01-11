@@ -45,6 +45,8 @@ public class ControladorMenu implements ActionListener {
         ctrlHistorico.actualizarTabla();
     }
     
+
+    
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         
@@ -57,7 +59,8 @@ public class ControladorMenu implements ActionListener {
           
         }
         if(actionEvent.getSource() == vista.getBtnInstrucciones()){
-            
+            VistaInstrucciones vistaInstrucciones = new VistaInstrucciones();
+            vistaInstrucciones.setVisible(true);
         }
     }
     
