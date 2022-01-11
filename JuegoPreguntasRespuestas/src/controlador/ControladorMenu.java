@@ -35,11 +35,14 @@ public class ControladorMenu implements ActionListener {
     private void iniciarJuego(){ 
         VistaPreguntaRespuesta vistaPR = new VistaPreguntaRespuesta();
         ControladorPregunta ctrlPregunta = new ControladorPregunta(vistaPR);
+       // vista.setVisible(false);
+        
     }
     
     private void iniciarVentanaHistorico(){
         VistaHistorico vistaHistorico = new VistaHistorico();
         ControladorHistorico ctrlHistorico = new ControladorHistorico(vistaHistorico);
+        ctrlHistorico.actualizarTabla();
     }
     
     @Override

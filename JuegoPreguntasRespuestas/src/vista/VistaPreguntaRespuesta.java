@@ -23,7 +23,7 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
     public VistaPreguntaRespuesta() {
         initComponents();
         this.getContentPane().setBackground(Color.WHITE);
-        this.setSize(1100, 600);
+        this.setSize(1000, 500);
         this.setLocationRelativeTo(null);
     }
 
@@ -41,18 +41,24 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
         txtNombreJugador = new javax.swing.JTextField();
         btnJugar = new javax.swing.JButton();
         panelPreguntas = new javax.swing.JPanel();
-        lblRonda = new javax.swing.JLabel();
-        txtRonda = new javax.swing.JTextField();
-        lblPuntaje = new javax.swing.JLabel();
-        txtPuntaje = new javax.swing.JTextField();
         lblPregunta = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         btnRespuesta1 = new javax.swing.JButton();
         btnRespuesta2 = new javax.swing.JButton();
         btnRespuesta3 = new javax.swing.JButton();
         btnRespuesta4 = new javax.swing.JButton();
+        panelRondaPuntaje = new javax.swing.JPanel();
+        txtPuntaje = new javax.swing.JTextField();
+        txtRonda = new javax.swing.JTextField();
+        lblRonda = new javax.swing.JLabel();
+        lblPuntaje = new javax.swing.JLabel();
+        panelGanarPerder = new javax.swing.JPanel();
+        lblTituloGanarPerder = new javax.swing.JLabel();
+        btnSiguientePregunta = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 500));
         getContentPane().setLayout(null);
@@ -73,7 +79,6 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
         panelLogin.setLayout(panelLoginLayout);
         panelLoginLayout.setHorizontalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(panelLoginLayout.createSequentialGroup()
                 .addGroup(panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelLoginLayout.createSequentialGroup()
@@ -83,6 +88,7 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
                         .addGap(462, 462, 462)
                         .addComponent(btnJugar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(334, Short.MAX_VALUE))
+            .addComponent(lblNombre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         panelLoginLayout.setVerticalGroup(
             panelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,70 +107,145 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
 
         panelPreguntas.setBackground(new java.awt.Color(255, 255, 255));
 
-        lblRonda.setText("Ronda #");
+        lblPregunta.setBackground(new java.awt.Color(255, 255, 255));
+        lblPregunta.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblPregunta.setOpaque(true);
 
-        txtRonda.setFocusable(false);
+        btnRespuesta1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        lblPuntaje.setText("Puntaje");
+        btnRespuesta2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
+        btnRespuesta3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        btnRespuesta4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        panelRondaPuntaje.setBackground(new java.awt.Color(255, 255, 255));
+
+        txtPuntaje.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtPuntaje.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtPuntaje.setFocusable(false);
 
-        lblPregunta.setBackground(new java.awt.Color(204, 204, 255));
-        lblPregunta.setOpaque(true);
+        txtRonda.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        txtRonda.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtRonda.setFocusable(false);
+
+        lblRonda.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblRonda.setText("Ronda #");
+
+        lblPuntaje.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        lblPuntaje.setText("Puntaje");
+
+        javax.swing.GroupLayout panelRondaPuntajeLayout = new javax.swing.GroupLayout(panelRondaPuntaje);
+        panelRondaPuntaje.setLayout(panelRondaPuntajeLayout);
+        panelRondaPuntajeLayout.setHorizontalGroup(
+            panelRondaPuntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelRondaPuntajeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblRonda)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtRonda, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblPuntaje)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        panelRondaPuntajeLayout.setVerticalGroup(
+            panelRondaPuntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRondaPuntajeLayout.createSequentialGroup()
+                .addContainerGap(26, Short.MAX_VALUE)
+                .addGroup(panelRondaPuntajeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblRonda)
+                    .addComponent(lblPuntaje)
+                    .addComponent(txtPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRonda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19))
+        );
 
         javax.swing.GroupLayout panelPreguntasLayout = new javax.swing.GroupLayout(panelPreguntas);
         panelPreguntas.setLayout(panelPreguntasLayout);
         panelPreguntasLayout.setHorizontalGroup(
             panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1)
             .addGroup(panelPreguntasLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
-                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addComponent(lblRonda)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtRonda, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblPuntaje)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 841, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30)
+                        .addComponent(panelRondaPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panelPreguntasLayout.createSequentialGroup()
-                        .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRespuesta1, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(btnRespuesta2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnRespuesta3, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-                            .addComponent(btnRespuesta4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(268, Short.MAX_VALUE))
+                        .addGap(31, 31, 31)
+                        .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(panelPreguntasLayout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(61, 61, 61)
+                                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btnRespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnRespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1248, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelPreguntasLayout.setVerticalGroup(
             panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelPreguntasLayout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRonda)
-                    .addComponent(lblPuntaje)
-                    .addComponent(txtPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtRonda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19)
+                .addComponent(panelRondaPuntaje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblPregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(71, 71, 71)
-                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRespuesta3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRespuesta1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(81, 81, 81)
-                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addGroup(panelPreguntasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRespuesta4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRespuesta2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47))
         );
 
         getContentPane().add(panelPreguntas);
-        panelPreguntas.setBounds(0, 0, 1140, 680);
+        panelPreguntas.setBounds(0, 0, 1258, 500);
+
+        panelGanarPerder.setBackground(new java.awt.Color(255, 255, 255));
+
+        lblTituloGanarPerder.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
+        lblTituloGanarPerder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        btnSiguientePregunta.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSiguientePregunta.setText("Siguiente pregunta");
+
+        btnSalir.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnSalir.setText("Salir");
+
+        javax.swing.GroupLayout panelGanarPerderLayout = new javax.swing.GroupLayout(panelGanarPerder);
+        panelGanarPerder.setLayout(panelGanarPerderLayout);
+        panelGanarPerderLayout.setHorizontalGroup(
+            panelGanarPerderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTituloGanarPerder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(panelGanarPerderLayout.createSequentialGroup()
+                .addGap(398, 398, 398)
+                .addGroup(panelGanarPerderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnSiguientePregunta, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(408, Short.MAX_VALUE))
+        );
+        panelGanarPerderLayout.setVerticalGroup(
+            panelGanarPerderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelGanarPerderLayout.createSequentialGroup()
+                .addGap(70, 70, 70)
+                .addComponent(lblTituloGanarPerder, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)
+                .addComponent(btnSiguientePregunta, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50)
+                .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(103, 103, 103))
+        );
+
+        getContentPane().add(panelGanarPerder);
+        panelGanarPerder.setBounds(0, 0, 1000, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -210,13 +291,18 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
     private javax.swing.JButton btnRespuesta2;
     private javax.swing.JButton btnRespuesta3;
     private javax.swing.JButton btnRespuesta4;
+    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSiguientePregunta;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPregunta;
     private javax.swing.JLabel lblPuntaje;
     private javax.swing.JLabel lblRonda;
+    private javax.swing.JLabel lblTituloGanarPerder;
+    private javax.swing.JPanel panelGanarPerder;
     private javax.swing.JPanel panelLogin;
     private javax.swing.JPanel panelPreguntas;
+    private javax.swing.JPanel panelRondaPuntaje;
     private javax.swing.JTextField txtNombreJugador;
     private javax.swing.JTextField txtPuntaje;
     private javax.swing.JTextField txtRonda;
@@ -341,5 +427,49 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
     public void setBtnJugar(JButton btnJugar) {
         this.btnJugar = btnJugar;
     }
+
+    public JButton getBtnSalir() {
+        return btnSalir;
+    }
+
+    public void setBtnSalir(JButton btnSalir) {
+        this.btnSalir = btnSalir;
+    }
+
+    public JButton getBtnSiguientePregunta() {
+        return btnSiguientePregunta;
+    }
+
+    public void setBtnSiguientePregunta(JButton btnSiguientePregunta) {
+        this.btnSiguientePregunta = btnSiguientePregunta;
+    }
+
+    public JLabel getLblTituloGanarPerder() {
+        return lblTituloGanarPerder;
+    }
+
+    public void setLblTituloGanarPerder(JLabel lblTituloGanarPerder) {
+        this.lblTituloGanarPerder = lblTituloGanarPerder;
+    }
+
+    public JPanel getPanelGanarPerder() {
+        return panelGanarPerder;
+    }
+
+    public void setPanelGanarPerder(JPanel panelGanarPerder) {
+        this.panelGanarPerder = panelGanarPerder;
+    }
+
+    public JPanel getPanelRondaPuntaje() {
+        return panelRondaPuntaje;
+    }
+
+    public void setPanelRondaPuntaje(JPanel panelRondaPuntaje) {
+        this.panelRondaPuntaje = panelRondaPuntaje;
+    }
+
+    
+    
+    
 
 }
