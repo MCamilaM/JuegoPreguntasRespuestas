@@ -9,13 +9,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 import modelo.Conexion;
-import modelo.Historico;
 import modelo.Jugador;
 import vista.VistaHistorico;
 
@@ -40,10 +35,10 @@ public class ControladorHistorico {
     public ControladorHistorico(VistaHistorico vistaHistorico) {
         this.vistaHistorico = vistaHistorico;
         this.vistaHistorico.setVisible(true);
-        actualizarTabla();
+        //actualizarTabla();
     }
 
-    private void actualizarTabla() {
+    public void actualizarTabla() {
         Connection conn = null;
         PreparedStatement stmt = null;
         PreparedStatement stmt2 = null;
@@ -51,6 +46,7 @@ public class ControladorHistorico {
         ResultSet rs2 = null;
         String[] titulos = new String[]{"Nombre", "Puntaje"};
         defaultTableModel = new DefaultTableModel(titulos, 0);
+        boolean registroVacio = true;
 
         try {
             conn = Conexion.getConnection();
@@ -59,6 +55,7 @@ public class ControladorHistorico {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
+                registroVacio = false;
                 int idJugador = rs.getInt("id_jugador");
                 stmt2.setInt(1, idJugador);
                 rs2 = stmt2.executeQuery();
@@ -77,18 +74,21 @@ public class ControladorHistorico {
         } finally {
             try {
                 Conexion.close(rs);
-                Conexion.close(rs2);
-                Conexion.close(stmt);
-                Conexion.close(stmt2);
+                if(!registroVacio){
+                    Conexion.close(rs2);
+                    Conexion.close(stmt2);
+                }                
+                Conexion.close(stmt);                
                 Conexion.close(conn);
             } catch (SQLException ex) {
-                ex.printStackTrace(System.out);
+                //ex.printStackTrace(System.out);
+                System.out.println("ocurrio un erros");
             }
         }
 
     }
 
-    private void insertarHistorico(Jugador jugador) {
+    public void insertarHistorico(Jugador jugador) {
         Connection conn = null;
         PreparedStatement stmt = null;
         try {
