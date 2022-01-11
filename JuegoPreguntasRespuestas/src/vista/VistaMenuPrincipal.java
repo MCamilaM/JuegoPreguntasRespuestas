@@ -18,6 +18,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
      */
     public VistaMenuPrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**

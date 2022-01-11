@@ -15,6 +15,7 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
      */
     public VistaPreguntaRespuesta() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
