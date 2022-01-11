@@ -6,6 +6,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import vista.*;
 
 /**
@@ -17,7 +18,7 @@ public class ControladorMenu implements ActionListener {
     /**
      * instacia de la clase VistaMenuPrincipal.
      */
-    VistaMenuPrincipal vista;
+    private VistaMenuPrincipal vista;
 
     public ControladorMenu(VistaMenuPrincipal vista) {
         this.vista = vista;
@@ -31,24 +32,26 @@ public class ControladorMenu implements ActionListener {
         this.vista.getBtnInstrucciones().addActionListener(this);
     }
     
-    private void iniciarJuego(){
-        
+    private void iniciarJuego(){ 
+        VistaPreguntaRespuesta vistaPR = new VistaPreguntaRespuesta();
+        ControladorPregunta ctrlPregunta = new ControladorPregunta(vistaPR);
     }
     
     private void iniciarVentanaHistorico(){
         VistaHistorico vistaHistorico = new VistaHistorico();
-        vistaHistorico.setVisible(true);
+        ControladorHistorico ctrlHistorico = new ControladorHistorico(vistaHistorico);
     }
     
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
         
         if(actionEvent.getSource() == vista.getBtnJugar()){
+            iniciarJuego();
             
         }
         if(actionEvent.getSource() == vista.getBtnHistorico()){
             iniciarVentanaHistorico();
-            
+          
         }
         if(actionEvent.getSource() == vista.getBtnInstrucciones()){
             

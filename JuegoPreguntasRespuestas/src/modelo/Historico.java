@@ -13,7 +13,7 @@ public class Historico {
      * Atributos
      */
     private int idHistorico;
-    private Jugador jugador;
+    private Jugador jugador; // id jugador
 
     /**
      * Constructor

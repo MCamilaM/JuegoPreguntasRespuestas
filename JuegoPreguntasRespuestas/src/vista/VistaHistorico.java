@@ -4,6 +4,8 @@
  */
 package vista;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author HP USER
@@ -15,6 +17,7 @@ public class VistaHistorico extends javax.swing.JFrame {
      */
     public VistaHistorico() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,7 +33,7 @@ public class VistaHistorico extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaHistorico = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         lblTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitulo.setText("HISTORICO ");
@@ -51,6 +54,7 @@ public class VistaHistorico extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tablaHistorico.setOpaque(false);
         jScrollPane1.setViewportView(tablaHistorico);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -105,7 +109,8 @@ public class VistaHistorico extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaHistorico().setVisible(true);
+                new VistaHistorico().setVisible(true);                
+                
             }
         });
     }
@@ -115,4 +120,14 @@ public class VistaHistorico extends javax.swing.JFrame {
     private javax.swing.JLabel lblTitulo;
     private javax.swing.JTable tablaHistorico;
     // End of variables declaration//GEN-END:variables
+
+    public JTable getTablaHistorico() {
+        return tablaHistorico;
+    }
+
+    public void setTablaHistorico(JTable tablaHistorico) {
+        this.tablaHistorico = tablaHistorico;
+    }
+
+
 }

@@ -16,9 +16,8 @@ public class Categoria {
      * Atributos
      */
     private int idCategoria;
-    private String descripción;
     private String nivelDificultad;
-    private List<Pregunta> preguntas;
+    //private List<Pregunta> preguntas;
 
     /**
      * Constructor vacío
@@ -31,10 +30,9 @@ public class Categoria {
      * @param descripción
      * @param nivelDificultad 
      */
-    public Categoria(String descripción, String nivelDificultad) {
-        this.descripción = descripción;
+    public Categoria(String nivelDificultad) {
         this.nivelDificultad = nivelDificultad;
-        this.preguntas = new ArrayList<>();
+       // this.preguntas = new ArrayList<>();
     }
     
     /**
@@ -43,11 +41,10 @@ public class Categoria {
      * @param descripción
      * @param nivelDificultad 
      */
-    public Categoria(int idCategoria, String descripción, String nivelDificultad) {
+    public Categoria(int idCategoria,  String nivelDificultad) {
         this.idCategoria = idCategoria;
-        this.descripción = descripción;
         this.nivelDificultad = nivelDificultad;
-        this.preguntas = new ArrayList<>();
+        //this.preguntas = new ArrayList<>();
     }
 
     /**
@@ -68,22 +65,6 @@ public class Categoria {
 
     /**
      * 
-     * @return descripcion
-     */
-    public String getDescripción() {
-        return descripción;
-    }
-
-    /**
-     * 
-     * @param descripción 
-     */
-    public void setDescripción(String descripción) {
-        this.descripción = descripción;
-    }
-
-    /**
-     * 
      * @return nivelDificultad
      */
     public String getNivelDificultad() {
@@ -98,12 +79,17 @@ public class Categoria {
         this.nivelDificultad = nivelDificultad;
     }
 
-    public List<Pregunta> getPreguntas() {
-        return preguntas;
-    }
+//    public List<Pregunta> getPreguntas() {
+//        return preguntas;
+//    }
+//
+//    public void setPreguntas(List<Pregunta> preguntas) {
+//        this.preguntas = preguntas;
+//    }
 
-    public void setPreguntas(List<Pregunta> preguntas) {
-        this.preguntas = preguntas;
+    @Override
+    public String toString() {
+        return "Categoria{" + "idCategoria=" + idCategoria + ", nivelDificultad=" + nivelDificultad + '}';
     }
     
     

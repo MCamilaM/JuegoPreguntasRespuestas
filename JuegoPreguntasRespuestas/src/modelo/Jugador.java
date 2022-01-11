@@ -26,11 +26,9 @@ public class Jugador {
     /**
      * Constructor
      * @param nombre
-     * @param puntaje 
      */
-    public Jugador(String nombre, int puntaje) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
-        this.puntaje = puntaje;
     }
 
     /**

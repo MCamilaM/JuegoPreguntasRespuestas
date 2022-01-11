@@ -17,7 +17,7 @@ import java.sql.Statement;
  */
 public class Conexion {
     
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/test?useSSl=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/juegopreguntasrespuestas?useSSl=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true";
     private static final String JDBC_USER = "root";
     private static final String JDBC_PASSWORD = "camila.BD";
     
@@ -29,12 +29,12 @@ public class Conexion {
         rs.close();
     }
     
-    public static void close(Statement smtm) throws SQLException{
-        smtm.close();
+    public static void close(Statement stmt) throws SQLException{
+        stmt.close();
     }
     
-    public static void close(PreparedStatement smtm) throws SQLException{
-        smtm.close();
+    public static void close(PreparedStatement stmt) throws SQLException{
+        stmt.close();
     }
     
     public static void close(Connection conn) throws SQLException{
