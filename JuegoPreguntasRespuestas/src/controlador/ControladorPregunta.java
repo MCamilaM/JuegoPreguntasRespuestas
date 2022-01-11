@@ -25,9 +25,6 @@ public class ControladorPregunta implements ActionListener {
     private static final String SQL_SELECT_CATEGORIA = "SELECT id_categoria, nivel_dificultad FROM categoria WHERE id_categoria=?";
     private static final String SQL_SELECT_PREGUNTA = "SELECT id_pregunta, descripcion, id_categoria FROM pregunta WHERE id_categoria=?";
     private static final String SQL_SELECT_RESPUESTA = "SELECT id_respuesta, descripcion, es_correcta, id_pregunta FROM respuesta WHERE id_pregunta=?";
-    private static final String SQL_INSERT = "INSERT  INTO persona(nombre, apellido, email, telefono) VALUES(?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE persona SET NOMBRE =?, APELLIDO=?, EMAIL=?, TELEFONO=? WHERE ID_PERSONA=?";
-    private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ?";
     private static final String SQL_INSERT_JUGADOR = "INSERT INTO jugador(nombre) VALUES(?)";
     private static final String SQL_SELECT_JUGADOR = "SELECT id_jugador FROM jugador WHERE nombre=?";
     private static final String SQL_UPDATE_JUGADOR = "UPDATE jugador SET puntaje =? WHERE id_jugador=?";
@@ -325,43 +322,29 @@ public class ControladorPregunta implements ActionListener {
     }
 
     private void resultadoRonda() {
-        boolean lblHabilitado = vistaPR.getBtnSiguientePregunta().isEnabled();
-        boolean numRonda = ronda >= 5 && vistaPR.getLblTituloGanarPerder().getText().equals("Respuesta Correcta");
-        boolean resultadoRonda = vistaPR.getLblTituloGanarPerder().getText().equals("Respuesta Correcta");
-        System.out.println("resultadoRonda = " + resultadoRonda);
         if (vistaPR.getLblTituloGanarPerder().getText().equals("Respuesta Correcta")) {
             actualizarPuntaje();
         }
         insertarHistorico();
     }
 
-    private void imprimirCategoria(Categoria categoria) {
-        System.out.println("categoria = " + categoria);
-    }
-
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
-        boolean esCorrecta = false;
+
         if (actionEvent.getSource() == vistaPR.getBtnJugar()) {
             validarCampo();
         }
         if (actionEvent.getSource() == vistaPR.getBtnRespuesta1()) {
-            esCorrecta = verificarRespuestaCorrecta(vistaPR.getBtnRespuesta1().getText());
-            System.out.println("esCorrecta = " + esCorrecta);
+            verificarRespuestaCorrecta(vistaPR.getBtnRespuesta1().getText());
         }
         if (actionEvent.getSource() == vistaPR.getBtnRespuesta2()) {
-            esCorrecta = verificarRespuestaCorrecta(vistaPR.getBtnRespuesta2().getText());
-            System.out.println("esCorrecta = " + esCorrecta);
-
+            verificarRespuestaCorrecta(vistaPR.getBtnRespuesta2().getText());
         }
         if (actionEvent.getSource() == vistaPR.getBtnRespuesta3()) {
-            esCorrecta = verificarRespuestaCorrecta(vistaPR.getBtnRespuesta3().getText());
-            System.out.println("esCorrecta = " + esCorrecta);
-
+            verificarRespuestaCorrecta(vistaPR.getBtnRespuesta3().getText());
         }
         if (actionEvent.getSource() == vistaPR.getBtnRespuesta4()) {
-            esCorrecta = verificarRespuestaCorrecta(vistaPR.getBtnRespuesta4().getText());
-            System.out.println("esCorrecta = " + esCorrecta);
+            verificarRespuestaCorrecta(vistaPR.getBtnRespuesta4().getText());
         }
         if (actionEvent.getSource() == vistaPR.getBtnSalir()) {
             resultadoRonda();
