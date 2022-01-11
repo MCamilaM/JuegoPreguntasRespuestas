@@ -20,6 +20,7 @@ public class VistaFondoPrincipal extends javax.swing.JFrame {
         this.setExtendedState(this.MAXIMIZED_BOTH);
         this.getContentPane().setBackground(Color.BLACK);
         this.setVisible(true);
+        this.setTitle("Reto Sofka :)");
     }
 
     /**

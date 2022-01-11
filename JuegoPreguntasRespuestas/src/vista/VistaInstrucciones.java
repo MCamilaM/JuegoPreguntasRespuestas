@@ -16,6 +16,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
     public VistaInstrucciones() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Instrucciones");
     }
 
     /**
@@ -46,7 +47,7 @@ public class VistaInstrucciones extends javax.swing.JFrame {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Monospaced", 0, 14)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("- para iniciar la ronda de preguntas, debe dar clic en boton de Jugar y debe ingresar un nombre/apodo.\n- solo hay 5 rondas, cada ronda con una pregunta.\n- el nivel de dificultad de cada pregunta incrementa acorde vaya avanzando.\n- para responder a la pregunta, debe dar clic a una de las cuatro opciones de respuesta, solo hay una respuesta \n  correcta.\n- si acierta a la pregunta sumara una cantidad de puntos dependiendo del nivel de dificultad de la pregunta.\n- si acierta a la pregunta tiene la posibilidad de continuar a la siguiente ronda o de retirarse con los puntos \n  acumulados, para esto debe dar clic en el boton Salir.\n- si falla al contestar la pregunta perdera todos los puntos y se terminara el juego.\n- si responde correctamente todas las 5 rondas, tendra el maximo puntaje y se terminara el juego.\n\n  Buena Suerte :)");
+        jTextArea1.setText("\n- para iniciar la ronda de preguntas, debe dar clic en boton de Jugar y debe ingresar un nombre/apodo.\n- solo hay 5 rondas, cada ronda con una pregunta.\n- el nivel de dificultad de cada pregunta incrementa acorde vaya avanzando.\n- para responder a la pregunta, debe dar clic a una de las cuatro opciones de respuesta, solo hay una respuesta \n  correcta.\n- si acierta a la pregunta sumara una cantidad de puntos dependiendo del nivel de dificultad de la pregunta.\n- si acierta a la pregunta tiene la posibilidad de continuar a la siguiente ronda o de retirarse con los puntos \n  acumulados, para esto debe dar clic en el boton Salir.\n- si falla al contestar la pregunta perdera todos los puntos y se terminara el juego.\n- si responde correctamente todas las 5 rondas, tendra el maximo puntaje y se terminara el juego.\n\n  Buena Suerte :)");
         jTextArea1.setFocusable(false);
         jScrollPane1.setViewportView(jTextArea1);
 

@@ -25,6 +25,7 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
         this.getContentPane().setBackground(Color.WHITE);
         this.setSize(1000, 500);
         this.setLocationRelativeTo(null);
+        this.setTitle("Preguntas");
     }
 
     /**
