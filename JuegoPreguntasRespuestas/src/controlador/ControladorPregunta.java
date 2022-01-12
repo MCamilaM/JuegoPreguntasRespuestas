@@ -9,12 +9,9 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.*;
-import vista.VistaHistorico;
-import vista.VistaPreguntaRespuesta;
+import vista.*;
 
 /**
  *
@@ -22,6 +19,9 @@ import vista.VistaPreguntaRespuesta;
  */
 public class ControladorPregunta implements ActionListener {
 
+    /**
+     * sentencia SQL
+     */
     private static final String SQL_SELECT_CATEGORIA = "SELECT id_categoria, nivel_dificultad FROM categoria WHERE id_categoria=?";
     private static final String SQL_SELECT_PREGUNTA = "SELECT id_pregunta, descripcion, id_categoria FROM pregunta WHERE id_categoria=?";
     private static final String SQL_SELECT_RESPUESTA = "SELECT id_respuesta, descripcion, es_correcta, id_pregunta FROM respuesta WHERE id_pregunta=?";
@@ -30,16 +30,23 @@ public class ControladorPregunta implements ActionListener {
     private static final String SQL_UPDATE_JUGADOR = "UPDATE jugador SET puntaje =? WHERE id_jugador=?";
 
     private int ronda = 1;
-
     private VistaPreguntaRespuesta vistaPR;
     private Jugador jugador;
     private Respuesta respuestaCorrecta;
     private int[] listaPremios = {500, 1000, 2000, 4000, 8000};
     private int puntaje = 0;
 
+    /**
+     * Constructor vacio.
+     */
     public ControladorPregunta() {
     }
 
+    /**
+     * Constructor
+     *
+     * @param vistaPR
+     */
     public ControladorPregunta(VistaPreguntaRespuesta vistaPR) {
         this.vistaPR = vistaPR;
         this.vistaPR.setVisible(true);
@@ -49,6 +56,9 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * agrega eventos addActionListener.
+     */
     private void agregarEventos() {
         this.vistaPR.getBtnJugar().addActionListener(this);
         this.vistaPR.getBtnRespuesta1().addActionListener(this);
@@ -59,12 +69,18 @@ public class ControladorPregunta implements ActionListener {
         this.vistaPR.getBtnSalir().addActionListener(this);
     }
 
+    /**
+     * muestra la vista para ingresar nombre.
+     */
     private void vistaLogin() {
         vistaPR.getPanelLogin().setVisible(true);
         vistaPR.getPanelPreguntas().setVisible(false);
         vistaPR.getPanelGanarPerder().setVisible(false);
     }
 
+    /**
+     * muestra la vista para la preguntas y respuestas.
+     */
     private void vistaPreguntas() {
 
         vistaPR.getPanelGanarPerder().setVisible(false);
@@ -75,13 +91,18 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
-    private void vistaResultado(boolean esCorrecta) {
+    /**
+     * muestra vista del resultado de la ronda.
+     *
+     * @param rtaEsCorrecta
+     */
+    private void vistaResultado(boolean rtaEsCorrecta) {
         vistaPR.getPanelLogin().setVisible(false);
         vistaPR.getPanelPreguntas().setVisible(false);
         vistaPR.getPanelGanarPerder().setVisible(true);
         vistaPR.getPanelRondaPuntaje().setVisible(true);
         if (ronda < 5) {
-            if (esCorrecta) {
+            if (rtaEsCorrecta) {
                 vistaPR.getLblTituloGanarPerder().setText("Respuesta Correcta");
                 vistaPR.getBtnSiguientePregunta().setEnabled(true);
             } else {
@@ -94,6 +115,9 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * valida si se ingreso un nombre antes de iniciar el juego.
+     */
     private void validarCampo() {
         String nombre = vistaPR.getTxtNombreJugador().getText();
         if ("".equals(nombre)) {
@@ -106,6 +130,10 @@ public class ControladorPregunta implements ActionListener {
         }
     }
 
+    /**
+     * prepara y muestra la pregunta y respuestas correspondientes segun la
+     * ronda.
+     */
     private void iniciarRonda() {
         Categoria categoria = listarCategoria(ronda);
         List<Pregunta> preguntas = listarPreguntas(categoria);
@@ -116,6 +144,9 @@ public class ControladorPregunta implements ActionListener {
         vistaPreguntas();
     }
 
+    /**
+     * metodo para agregar un jugador a la base de datos.
+     */
     private void insertarJugador() {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -146,6 +177,12 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * metodo para traer la categoria segun la ronda.
+     *
+     * @param ronda
+     * @return categoria
+     */
     private Categoria listarCategoria(int ronda) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -174,6 +211,12 @@ public class ControladorPregunta implements ActionListener {
         return categoria;
     }
 
+    /**
+     * metodo para traer preguntas segun una categoria.
+     *
+     * @param categoria
+     * @return lista de preguntas
+     */
     private List<Pregunta> listarPreguntas(Categoria categoria) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -205,6 +248,12 @@ public class ControladorPregunta implements ActionListener {
         return preguntas;
     }
 
+    /**
+     * metodo para seleccionar aleatoriamente una pregunta de una categoria.
+     *
+     * @param preguntas
+     * @return pregunta
+     */
     public Pregunta seleccionarPregunta(List<Pregunta> preguntas) {
         int min_val = 0;
         int max_val = preguntas.size() - 1;
@@ -214,6 +263,12 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * trae las respuestas que corresponde a una pregunta.
+     *
+     * @param pregunta
+     * @return lista de respuestas
+     */
     public List<Respuesta> listarRespuestas(Pregunta pregunta) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -250,10 +305,20 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * metodo para mostrar pregunta en la vista.
+     *
+     * @param pregunta
+     */
     public void mostrarPregunta(Pregunta pregunta) {
         vistaPR.getLblPregunta().setText(pregunta.getDescripcion());
     }
 
+    /**
+     * metodo para mostrar respuestas en la vista.
+     *
+     * @param respuestas
+     */
     public void mostrarRespuestas(List<Respuesta> respuestas) {
         vistaPR.getBtnRespuesta1().setText(respuestas.get(0).getDescripcion());
         vistaPR.getBtnRespuesta2().setText(respuestas.get(1).getDescripcion());
@@ -262,18 +327,19 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * metodo para verificar si la respuesta escogida es la correcta.
+     *
+     * @param descripcion
+     * @return
+     */
     public boolean verificarRespuestaCorrecta(String descripcion) {
         boolean esCorrecta = false;
         if (descripcion.equalsIgnoreCase(respuestaCorrecta.getDescripcion())) {
             esCorrecta = true;
-            //aumentar puntaje
             adicionarPuntaje();
-            //panel de ganar y preguntar si se quiere retirar
             vistaResultado(true);
-            //aumentar ronda
             ronda++;
-            //set puntaje del jugador
-
         } else {
             esCorrecta = false;
             vistaResultado(false);
@@ -281,11 +347,17 @@ public class ControladorPregunta implements ActionListener {
         return esCorrecta;
     }
 
+    /**
+     * metodo para acumular el puntaje del jugador.
+     */
     private void adicionarPuntaje() {
         int premio = listaPremios[ronda - 1];
         puntaje += premio;
     }
 
+    /**
+     * metodo para actulizar el puntaje del jugador en la base de datos.
+     */
     private void actualizarPuntaje() {
         jugador.setPuntaje(puntaje);
         Connection conn = null;
@@ -309,6 +381,9 @@ public class ControladorPregunta implements ActionListener {
         }
     }
 
+    /**
+     * metodo para agregar un historico.
+     */
     private void insertarHistorico() {
         VistaHistorico vistaHistorico = new VistaHistorico();
         ControladorHistorico ctrlHistorico = new ControladorHistorico(vistaHistorico);
@@ -321,6 +396,10 @@ public class ControladorPregunta implements ActionListener {
 
     }
 
+    /**
+     * metodo para evaluar si se actualiza o no el puntaje del jugador cuando 
+     * da clic en el boton salir.
+     */
     private void resultadoRonda() {
         if (vistaPR.getLblTituloGanarPerder().getText().equals("Respuesta Correcta")) {
             actualizarPuntaje();
@@ -328,6 +407,10 @@ public class ControladorPregunta implements ActionListener {
         insertarHistorico();
     }
 
+    /**
+     * Eventos
+     * @param actionEvent 
+     */
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
