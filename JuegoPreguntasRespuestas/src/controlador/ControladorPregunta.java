@@ -367,7 +367,7 @@ public class ControladorPregunta implements ActionListener {
             stmt = conn.prepareStatement(SQL_UPDATE_JUGADOR);
             stmt.setInt(1, jugador.getPuntaje());
             stmt.setInt(2, jugador.getIdJugador());
-            System.out.println(jugador.getPuntaje());
+            //System.out.println(jugador.getPuntaje());
             stmt.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace(System.out);

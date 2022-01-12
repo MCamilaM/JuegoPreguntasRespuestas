@@ -109,16 +109,16 @@ public class VistaPreguntaRespuesta extends javax.swing.JFrame {
         panelPreguntas.setBackground(new java.awt.Color(255, 255, 255));
 
         lblPregunta.setBackground(new java.awt.Color(255, 255, 255));
-        lblPregunta.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        lblPregunta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblPregunta.setOpaque(true);
 
-        btnRespuesta1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnRespuesta1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnRespuesta2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnRespuesta2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnRespuesta3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnRespuesta3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        btnRespuesta4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnRespuesta4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         panelRondaPuntaje.setBackground(new java.awt.Color(255, 255, 255));
 
