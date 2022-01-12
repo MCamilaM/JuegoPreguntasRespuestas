@@ -17,7 +17,6 @@ public class Categoria {
      */
     private int idCategoria;
     private String nivelDificultad;
-    //private List<Pregunta> preguntas;
 
     /**
      * Constructor vacío
@@ -78,14 +77,6 @@ public class Categoria {
     public void setNivelDificultad(String nivelDificultad) {
         this.nivelDificultad = nivelDificultad;
     }
-
-//    public List<Pregunta> getPreguntas() {
-//        return preguntas;
-//    }
-//
-//    public void setPreguntas(List<Pregunta> preguntas) {
-//        this.preguntas = preguntas;
-//    }
 
     @Override
     public String toString() {

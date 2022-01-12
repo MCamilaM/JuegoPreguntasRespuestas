@@ -18,7 +18,6 @@ public class Pregunta {
     private int idPregunta;
     private String descripcion;
     private int idCategoria;
-    //private List<Respuesta> respuestas;
 
     /**
      * Constructor vacío
@@ -47,7 +46,6 @@ public class Pregunta {
         this.idPregunta = idPregunta;
         this.descripcion = descripcion;
         this.idCategoria = idCategoria;
-        //this.respuestas = new ArrayList<>();
     }
 
     /**
@@ -102,22 +100,5 @@ public class Pregunta {
     public String toString() {
         return "Pregunta{" + "idPregunta=" + idPregunta + ", descripcion=" + descripcion + ", idCategoria=" + idCategoria + '}';
     }
-
-    /**
-     * 
-     * @return respuestas
-     */
-//    public List<Respuesta> getRespuestas() {
-//        return respuestas;
-//    }
-
-    /**
-     * 
-     * @param respuestas 
-     */
-//    public void setRespuestas(List<Respuesta> respuestas) {
-//        this.respuestas = respuestas;
-//    }
-    
-    
+ 
 }
