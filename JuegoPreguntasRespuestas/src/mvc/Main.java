@@ -10,7 +10,7 @@ import vista.VistaMenuPrincipal;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class Main {
 
@@ -18,7 +18,6 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
         
         VistaFondoPrincipal vistaFondo = new VistaFondoPrincipal();
         vistaFondo.setVisible(true);

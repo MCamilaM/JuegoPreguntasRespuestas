@@ -6,7 +6,7 @@ package vista;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class VistaInstrucciones extends javax.swing.JFrame {
 

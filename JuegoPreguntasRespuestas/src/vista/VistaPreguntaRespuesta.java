@@ -13,7 +13,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class VistaPreguntaRespuesta extends javax.swing.JFrame {
 

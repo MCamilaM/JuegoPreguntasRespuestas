@@ -20,24 +20,39 @@ import vista.VistaHistorico;
  */
 public class ControladorHistorico {
 
+    /**
+     * sentencias SQL.
+     */
     private static final String SQL_SELECT = "SELECT id_historico, id_jugador FROM historico";
     private static final String SQL_SELECT_JUGADOR = "SELECT nombre, puntaje FROM jugador WHERE id_jugador=?";
     private static final String SQL_INSERT = "INSERT  INTO historico(id_jugador) VALUES(?)";
-    private static final String SQL_UPDATE = "UPDATE persona SET NOMBRE =?, APELLIDO=?, EMAIL=?, TELEFONO=? WHERE ID_PERSONA=?";
-    private static final String SQL_DELETE = "DELETE FROM persona WHERE id_persona = ?";
 
+
+    /**
+     * Instancias 
+     */
     private VistaHistorico vistaHistorico;
     private DefaultTableModel defaultTableModel;
 
+    /**
+     * constructor vacio
+     */
     public ControladorHistorico() {
     }
 
+    /**
+     * constructor
+     * @param vistaHistorico 
+     */
     public ControladorHistorico(VistaHistorico vistaHistorico) {
         this.vistaHistorico = vistaHistorico;
         this.vistaHistorico.setVisible(true);
         //actualizarTabla();
     }
 
+    /**
+     * metodo para actualizar la tabla de historicos
+     */
     public void actualizarTabla() {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -81,13 +96,17 @@ public class ControladorHistorico {
                 Conexion.close(stmt);                
                 Conexion.close(conn);
             } catch (SQLException ex) {
-                //ex.printStackTrace(System.out);
-                System.out.println("ocurrio un erros");
+                ex.printStackTrace(System.out);
+                //System.out.println("ocurrio un erros");
             }
         }
 
     }
 
+    /**
+     * metodo para insertar historico
+     * @param jugador 
+     */
     public void insertarHistorico(Jugador jugador) {
         Connection conn = null;
         PreparedStatement stmt = null;

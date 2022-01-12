@@ -8,7 +8,7 @@ import java.awt.Color;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class VistaFondoPrincipal extends javax.swing.JFrame {
 

@@ -9,7 +9,7 @@ import javax.swing.JButton;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class VistaMenuPrincipal extends javax.swing.JFrame {
 

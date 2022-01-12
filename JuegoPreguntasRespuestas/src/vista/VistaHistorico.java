@@ -8,7 +8,7 @@ import javax.swing.JTable;
 
 /**
  *
- * @author HP USER
+ * @author Camila Morales
  */
 public class VistaHistorico extends javax.swing.JFrame {
 
